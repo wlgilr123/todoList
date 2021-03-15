@@ -24,7 +24,7 @@ export default class Item extends Component {
                                 <li key={item.id} className="liName">
                                    <div>
                                        {/* 采用defaultChecked可以默认选中 */}
-                                   <input   type="checkbox" onClick={()=>{return this.clickCheck(index)}} name={item.id} Checked={item.done}/>
+                                   <input   type="checkbox" onClick={()=>{return this.clickCheck(index)}} name={item.id} checked={item.done} />
                                    
                                    <span> { item.name}</span>
                                    </div>

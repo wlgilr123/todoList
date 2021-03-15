@@ -7,16 +7,17 @@ export default class footer extends Component {
         deleteAllTodo()
     }
     allChecked = () => {
-        const { allCheck } = this.props
+        const { allCheck} = this.props
         allCheck()
     }
     render() {
         const { todosListNumber, checkedDoneL } = this.props
-        
+        console.log(checkedDoneL,'checkedDoneLcheckedDoneL')
+        const { footchecked} = this.props
         return (
             <div className="footer">
                <span>
-                    <input type="checkbox" onClick={ this.allChecked}/>
+                    <input type="checkbox" onClick={ this.allChecked} checked={footchecked}/>
                    已完成{ checkedDoneL}/全部{todosListNumber}
                </span>
                <span>

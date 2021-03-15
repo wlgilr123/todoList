@@ -16,17 +16,21 @@ export default class App extends Component {
 		],
 		todosListNumber:'',
 		checkListNumber: '',
-		checkedDoneL:""
+		checkedDoneL:"",
+		footchecked:false
       
 	}
 	addTodo=(input)=>{
 		
 		console.log(input,'llll')
 		this.state.todos.unshift(input)
+		let checkedDoneList=this.state.todos.filter((item) => {
+			return item.done===true
+		})
 		console.log(this.state.todos,'this.state.todos-===================')
      this.setState({
-		
-		todos:this.state.todos
+		todos:this.state.todos,
+		checkedDoneL:checkedDoneList.length
 	
   })}
 //  删除已勾选得列,单一删除
@@ -77,12 +81,25 @@ todos:[...this.state.todos],
 }
 	// 	点击全部
 	allCheck = () => {
-		this.state.todos.map((item) => {
-			return item.done=true
+		if(this.state.footchecked){
+			this.state.footchecked=false
+			this.state.todos.map((item) => {
+				return item.done=false
+			})
+		}else{
+			this.state.footchecked=true
+			this.state.todos.map((item) => {
+				return item.done=true
+			})
+		}
+		
+		let checkedDoneList=this.state.todos.filter((item) => {
+			return item.done===true
 		})
 		console.log(this.state.todos, 'allCheckallCheck')
 		this.setState({
-			todos:[...this.state.todos]
+			todos:[...this.state.todos],
+			checkedDoneL:checkedDoneList.length
 		})
 	}
 	// 
@@ -110,6 +127,15 @@ componentWillUpdate(){
 	 const {todos}=this.state
 		todosListNumber=todos.length
 	console.log(todosListNumber, 'componentWillUpdate', this.state.todosListNumber, todos)
+	// 更新处理状态
+	// let checkedDoneList=this.state.todos.filter((item) => {
+	// 	return item.done===true
+	// })
+// 	 this.setState({
+// 		// setState是浅比较，如果发现2个数组得地址一样就不会更新
+// todos:[...this.state.todos],
+// 		checkedDoneL:checkedDoneList.length
+// 	 })
 	// this.setState({
 	// 	todosListNumber:todos.length
 	// })
@@ -128,7 +154,7 @@ componentWillUpdate(){
 			<div className="divBox">
 				<Header addTodo={this.addTodo}/>
 				<Center todos={todos} deleteTodo={this.deleteTodo} checkedDone={this.checkedDone}/>
-				<Footer deleteAllTodo={this.deleteAllTodo} todosListNumber={todos.length} checkedDoneL={this.state.checkedDoneL} allCheck={ this.allCheck}/>
+				<Footer deleteAllTodo={this.deleteAllTodo} todosListNumber={todos.length} checkedDoneL={this.state.checkedDoneL} allCheck={ this.allCheck} footchecked={this.state.footchecked}/>
 			</div>
 		)
 	}
