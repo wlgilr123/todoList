@@ -1,0 +1,10 @@
+.footer{
+    box-sizing: border-box;
+    padding-left: 38px;
+    width:618px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer span input{
+    margin-right: 40px;
+}

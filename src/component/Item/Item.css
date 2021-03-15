@@ -1,0 +1,4 @@
+.liName{
+    display: flex;
+    justify-content: space-between;
+}

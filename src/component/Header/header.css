@@ -1,0 +1,21 @@
+.header{
+    box-sizing: border-box;
+    padding-left: 38px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.header input{
+    width: 577px ;
+    height:34px ;
+    border-radius: 8px;
+    border:none;
+    border: 2px solid rgb(215,215,215);
+
+}
+.header input::-webkit-input-placeholder {
+      padding-left: 10px;
+        /* color:red */
+       }
