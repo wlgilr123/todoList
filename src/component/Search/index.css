@@ -1,0 +1,16 @@
+section{
+    box-sizing: border-box;
+    padding-left: 14%;
+    padding-top: 10%;
+    padding-bottom: 11%;
+    height: 200px;
+    background: rgb(238,238,238);
+    border-radius: 5px;
+}
+.searchTitle{
+    font-size: 20px;
+}
+.searchBtn input{
+    width: 250px;
+    margin-right: 10px;
+}
